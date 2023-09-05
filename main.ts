@@ -66,7 +66,7 @@ export default class TextConversionsPlugin extends Plugin {
 			id: 'text-conversions-remove-spaces',
 			name: 'Remove all spaces',
 			editorCallback: (editor: Editor) => {
-				editor.replaceSelection(editor.getSelection().replaceAll(' ', ''));
+				editor.replaceSelection(editor.getSelection().replace(new RegExp(' ', 'g'), ''));
 			}
 		});
 
@@ -74,7 +74,7 @@ export default class TextConversionsPlugin extends Plugin {
 			id: 'text-conversions-spaces-to-underscore',
 			name: 'Replace spaces with underscore',
 			editorCallback: (editor: Editor) => {
-				editor.replaceSelection(editor.getSelection().replaceAll(' ', '_'));
+				editor.replaceSelection(editor.getSelection().replace(new RegExp(' ', 'g'), '_'));
 			}
 		});
 
@@ -82,7 +82,7 @@ export default class TextConversionsPlugin extends Plugin {
 			id: 'text-conversions-underscore-to-spaces',
 			name: 'Replace underscores with spaces',
 			editorCallback: (editor: Editor) => {
-				editor.replaceSelection(editor.getSelection().replaceAll('_', ' '));
+				editor.replaceSelection(editor.getSelection().replace(new RegExp('_', 'g'), ' '));
 			}
 		});
 
@@ -90,7 +90,7 @@ export default class TextConversionsPlugin extends Plugin {
 			id: 'text-conversions-dashes-to-spaces',
 			name: 'Replace dashes with spaces',
 			editorCallback: (editor: Editor) => {
-				editor.replaceSelection(editor.getSelection().replaceAll('-', ' '));
+				editor.replaceSelection(editor.getSelection().replace(new RegExp('-', 'g'), ' '));
 			}
 		});
 
@@ -98,7 +98,7 @@ export default class TextConversionsPlugin extends Plugin {
 			id: 'text-conversions-spaces-to-dashes',
 			name: 'Replace spaces with dashes',
 			editorCallback: (editor: Editor) => {
-				editor.replaceSelection(editor.getSelection().replaceAll(' ', '-'));
+				editor.replaceSelection(editor.getSelection().replace(new RegExp(' ', 'g'), '-'));
 			}
 		});
 
@@ -106,7 +106,7 @@ export default class TextConversionsPlugin extends Plugin {
 			id: 'text-conversions-remove-multiple-spaces',
 			name: 'Remove multiple spaces',
 			editorCallback: (editor: Editor) => {
-				editor.replaceSelection(editor.getSelection().replaceAll(/ +/g, ' '));
+				editor.replaceSelection(editor.getSelection().replace(new RegExp(' +', 'g'), ' '));
 			}
 		});
 
@@ -114,7 +114,7 @@ export default class TextConversionsPlugin extends Plugin {
 			id: 'text-conversions-remove-non-alpha-numeric',
 			name: 'Remove Non-Alpha-numeric characters',
 			editorCallback: (editor: Editor) => {
-				editor.replaceSelection(editor.getSelection().replaceAll(/[^a-zA-Z0-9 \t]+/g, ''));
+				editor.replaceSelection(editor.getSelection().replace(new RegExp('[^a-zA-Z0-9 \t]+', 'g'), ''));
 			}
 		});
 
@@ -122,7 +122,7 @@ export default class TextConversionsPlugin extends Plugin {
 			id: 'text-conversions-hash-tag',
 			name: 'Convert words to hash tags',
 			editorCallback: (editor: Editor) => {
-				editor.replaceSelection(editor.getSelection().replaceAll(/^| /g, ' #'));
+				editor.replaceSelection(editor.getSelection().replace(new RegExp('^|( +)', 'g'), ' #'));
 			}
 		});
 
@@ -171,7 +171,8 @@ export default class TextConversionsPlugin extends Plugin {
 			id: 'text-conversions-flatten-list',
 			name: 'Flatten list',
 			editorCallback: (editor: Editor) => {
-				editor.replaceSelection(editor.getSelection().replaceAll(/\n/g, ', '));
+				editor.replaceSelection(editor.getSelection().replace(new RegExp('\n', 'g'), ', ')
+						.replace(new RegExp('- ', 'g'), ''));
 			}
 		});
 
@@ -179,7 +180,7 @@ export default class TextConversionsPlugin extends Plugin {
 			id: 'text-conversions-comma-to-list',
 			name: 'Comma separated items to list',
 			editorCallback: (editor: Editor) => {
-				editor.replaceSelection(editor.getSelection().replaceAll(/^|(, *)/g, '\n- '));
+				editor.replaceSelection(editor.getSelection().replace(new RegExp('^|(, *)', 'g'), '\n- '));
 			}
 		});
 
