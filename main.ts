@@ -4,7 +4,7 @@ export default class TextConversionsPlugin extends Plugin {
 	async onload() {
 
 		this.addCommand({
-			id: 'text-conversions-uppercase',
+			id: 'uppercase',
 			name: 'Upper case',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().toUpperCase());
@@ -12,7 +12,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-lowercase',
+			id: 'lowercase',
 			name: 'Lower case',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().toLowerCase());
@@ -20,7 +20,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-word-case',
+			id: 'word-case',
 			name: 'Word case',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().split(' ')
@@ -29,7 +29,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-sentence-case',
+			id: 'sentence-case',
 			name: 'Sentence case',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().split(/\. +/)
@@ -38,7 +38,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-rot13',
+			id: 'rot13',
 			name: 'ROT13',
 			editorCallback: (editor: Editor) => {
 				const alpha = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM';
@@ -47,7 +47,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-base64-encode',
+			id: 'base64-encode',
 			name: 'Base64 Encode',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(btoa(editor.getSelection()));
@@ -55,7 +55,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-base64-decode',
+			id: 'base64-decode',
 			name: 'Base64 Decode',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(atob(editor.getSelection()));
@@ -63,7 +63,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-remove-spaces',
+			id: 'remove-spaces',
 			name: 'Remove all spaces',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().replace(new RegExp(' ', 'g'), ''));
@@ -71,7 +71,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-spaces-to-underscore',
+			id: 'spaces-to-underscore',
 			name: 'Replace spaces with underscore',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().replace(new RegExp(' ', 'g'), '_'));
@@ -79,7 +79,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-underscore-to-spaces',
+			id: 'underscore-to-spaces',
 			name: 'Replace underscores with spaces',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().replace(new RegExp('_', 'g'), ' '));
@@ -87,7 +87,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-dashes-to-spaces',
+			id: 'dashes-to-spaces',
 			name: 'Replace dashes with spaces',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().replace(new RegExp('-', 'g'), ' '));
@@ -95,7 +95,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-spaces-to-dashes',
+			id: 'spaces-to-dashes',
 			name: 'Replace spaces with dashes',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().replace(new RegExp(' ', 'g'), '-'));
@@ -103,7 +103,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-remove-multiple-spaces',
+			id: 'remove-multiple-spaces',
 			name: 'Remove multiple spaces',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().replace(new RegExp(' +', 'g'), ' '));
@@ -111,7 +111,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-remove-non-alpha-numeric',
+			id: 'remove-non-alpha-numeric',
 			name: 'Remove Non-Alpha-numeric characters',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().replace(new RegExp('[^a-zA-Z0-9 \t]+', 'g'), ''));
@@ -119,7 +119,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-hash-tag',
+			id: 'hash-tag',
 			name: 'Convert words to hash tags',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().replace(new RegExp('^|( +)', 'g'), ' #'));
@@ -127,7 +127,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-url-encode',
+			id: 'url-encode',
 			name: 'URL Encode',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(encodeURIComponent(editor.getSelection()));
@@ -135,7 +135,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-url-decode',
+			id: 'url-decode',
 			name: 'URL Decode',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(decodeURIComponent(editor.getSelection()));
@@ -143,7 +143,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-add-spaces',
+			id: 'add-spaces',
 			name: 'Add Spaces',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().split('').join(' '));
@@ -151,7 +151,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-reverse-text',
+			id: 'reverse-text',
 			name: 'Reverse text',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().split('').reverse().join(''));
@@ -159,7 +159,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-reverse-words',
+			id: 'reverse-words',
 			name: 'Reverse words',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().split(' ')
@@ -168,7 +168,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-flatten-list',
+			id: 'flatten-list',
 			name: 'Flatten list',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().replace(new RegExp('\n', 'g'), ', ')
@@ -177,7 +177,7 @@ export default class TextConversionsPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: 'text-conversions-comma-to-list',
+			id: 'comma-to-list',
 			name: 'Comma separated items to list',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(editor.getSelection().replace(new RegExp('^|(, *)', 'g'), '\n- '));
